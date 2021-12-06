@@ -35,7 +35,11 @@ choice = 0
 display = [rock, paper, scissors]
 while choice in range(0, 3):
     computer_choice = secrets.randbelow(3)
-    choice = int(input())
+    raw_choice = input()
+    if raw_choice not in ["0","1","2"]:
+        print("That's it! Good game.")  
+        break;
+    choice = int(raw_choice)
     print("Computer choice: " + display[computer_choice] + "\nYour choice: " + display[choice])
     if computer_choice == choice:
        print("It's a tie!")
